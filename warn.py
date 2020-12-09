@@ -32,6 +32,6 @@ def popup(msg='battery overcharge warning'):
 while True:
     battery = psutil.sensors_battery()
     print(battery)
-    if battery.percent >= warn_at:
+    if battery.percent >= warn_at and battery.power_plugged:
         popup()
     time.sleep(delay)
